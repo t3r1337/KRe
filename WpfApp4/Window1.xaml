@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp4.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="2">
+            <TextBlock>id:</TextBlock>
+            <TextBox Name="tbid" Text="{Binding id_оформления}" ></TextBox>
+            <TextBlock>Мебель:</TextBlock>
+            <ComboBox Name="cbМебель" SelectedItem="{Binding Мебель1}" DisplayMemberPath="Наименование"></ComboBox>
+            <TextBlock>Заказ:</TextBlock>
+            <ComboBox Name="cbЗаказ" SelectedItem="{Binding Заказ1}" DisplayMemberPath="id_заказа"></ComboBox>
+            <TextBlock>Количество:</TextBlock>
+            <TextBox Name="tbКоличество" Text="{Binding Количество}" ></TextBox>
+            <TextBlock>Фото_мебели</TextBlock>
+            <Image Source="{Binding Фото_мебели}" Name="Фото_мебели"></Image>
+        </UniformGrid>
+        <Button x:Name="BtnSave" Grid.Row="1" Click="BtnSave_Click">Сохранить</Button>
+    </Grid>
+</Window>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="251*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="404*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="109*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5">
+            <Button x:Name="BtnAdd" Click="BtnAdd_click" Width="265">Добавить</Button>
+            <Button x:Name="BtnDelete" Click="BtnDelete_click" Width="265" Content="Удалить"/>
+            <Button x:Name="BtnRefresh" Click="BtnRefresh_Click" Width="265" Content="Обновить"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="DataGridWarehouse" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Grid.ColumnSpan="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Мебель" Binding="{Binding Мебель1.Наименование}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Заказ" Binding="{Binding Заказ}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Количество}"></DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Фото мебели" Binding="{Binding Фото_мебели}"></DataGridTextColumn>-->
+                <DataGridTemplateColumn Header="Фото мебели">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Фото_мебели}" Height="60"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Click="BtnEdit_click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
